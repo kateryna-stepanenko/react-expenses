@@ -1,13 +1,12 @@
-import React, { useState } from "react";
-import "./ExpenseForm.css";
-import NewExpense from "./NewExpemse";
+import React, { useState } from 'react';
+import './ExpenseForm.css';
 
-const ExpenseForm = (props) => {
+const ExpenseForm = props => {
   //1. Way
-  const [enteredTitle, setEnteredTitle] = useState("");
+  const [enteredTitle, setEnteredTitle] = useState('');
   //a number as a String
-  const [enteredAmount, setEnteredAmount] = useState("");
-  const [enteredDate, setEnteredDate] = useState("");
+  const [enteredAmount, setEnteredAmount] = useState('');
+  const [enteredDate, setEnteredDate] = useState('');
 
   //2. Second Way
   //   const [userInput, setUserInput] = useState({
@@ -21,12 +20,12 @@ const ExpenseForm = (props) => {
   //   };
 
   //Warning, if the fill keep empty
-  const [textWarning, setTextWarning] = useState("");
+  const [textWarning, setTextWarning] = useState('');
   //a number as a String
-  const [amountWarning, setAmountWarning] = useState("");
-  const [dateWarning, setDateWarning] = useState("");
+  const [amountWarning, setAmountWarning] = useState('');
+  const [dateWarning, setDateWarning] = useState('');
 
-  const titleChangeHandler = (event) => {
+  const titleChangeHandler = event => {
     setEnteredTitle(event.target.value);
     //2.Second Way
     // setUserInput({
@@ -40,7 +39,7 @@ const ExpenseForm = (props) => {
     // });
   };
 
-  const amountChangeHandler = (event) => {
+  const amountChangeHandler = event => {
     setEnteredAmount(event.target.value);
 
     //2. Way
@@ -55,16 +54,16 @@ const ExpenseForm = (props) => {
   };
 
   const clearForm = () => {
-    setEnteredTitle("");
-    setEnteredAmount("");
-    setEnteredDate("");
+    setEnteredTitle('');
+    setEnteredAmount('');
+    setEnteredDate('');
 
-    setTextWarning("");
-    setAmountWarning("");
-    setDateWarning("");
+    setTextWarning('');
+    setAmountWarning('');
+    setDateWarning('');
   };
 
-  const dateChangeHandler = (event) => {
+  const dateChangeHandler = event => {
     setEnteredDate(event.target.value);
     //2.Way
     // setUserInput({
@@ -73,7 +72,7 @@ const ExpenseForm = (props) => {
     // });
   };
 
-  const submitHandler = (event) => {
+  const submitHandler = event => {
     //the page will not reload
     event.preventDefault();
 

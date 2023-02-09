@@ -1,19 +1,19 @@
-import React, { useState } from "react";
-import "./Expenses.css";
-import Card from "../UI/Card.js";
-import ExpensesChart from "./ExpensesChart";
-import ExpenseFilter from "./ExpenseFilter";
-import ExpensesList from "./ExpensesList";
+import React, { useState } from 'react';
+import './Expenses.css';
+import Card from '../UI/Card.js';
+import ExpensesChart from './ExpensesChart';
+import ExpenseFilter from './ExpenseFilter';
+import ExpensesList from './ExpensesList';
 
 function Expenses(props) {
-  const [filteredYear, setFilteredYear] = useState("2023");
+  const [filteredYear, setFilteredYear] = useState('2023');
 
-  const filterChangeHandler = (selectedYear) => {
+  const filterChangeHandler = selectedYear => {
     setFilteredYear(selectedYear);
   };
 
   //filtered the Data
-  const filteredExpenses = props.items.filter((expense) => {
+  const filteredExpenses = props.items.filter(expense => {
     return expense.date.getFullYear().toString() === filteredYear;
   });
 
@@ -48,9 +48,8 @@ export default Expenses;
 //   ))
 // )}
 
-{
-  /* Condition if nothing exist Way 2*/
-}
+/* Condition if nothing exist Way 2*/
+
 //  {filteredExpenses.length === 0 && <p>No expenses found.</p>}
 //  {filteredExpenses.length > 0 &&
 //    filteredExpenses.map((el) => (
