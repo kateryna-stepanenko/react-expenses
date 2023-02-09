@@ -1,38 +1,63 @@
-import React, { useState } from 'react';
-
-import './Expenses.css';
-import Card from '../UI/Card';
-import ExpensesFilter from './ExpensesFilter';
-import ExpensesList from './ExpensesList';
+import React, { useState } from "react";
+import "./Expenses.css";
+import Card from "../UI/Card.js";
+import ExpensesChart from "./ExpensesChart";
+import ExpenseFilter from "./ExpenseFilter";
+import ExpensesList from "./ExpensesList";
 
 function Expenses(props) {
-  const [filteredYear, setFilteredYear] = useState('2021');
-  const filterChangeHandler = selectedYear => {
+  const [filteredYear, setFilteredYear] = useState("2023");
+
+  const filterChangeHandler = (selectedYear) => {
     setFilteredYear(selectedYear);
   };
 
-  const filteredExpenses = props.items.filter(expense => {
+  //filtered the Data
+  const filteredExpenses = props.items.filter((expense) => {
     return expense.date.getFullYear().toString() === filteredYear;
   });
 
   return (
     <div>
       <Card className="expenses">
-        <ExpensesFilter
+        <ExpenseFilter
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
+
+        <ExpensesChart expenses={filteredExpenses} />
         <ExpensesList items={filteredExpenses} />
       </Card>
     </div>
   );
 }
+
 export default Expenses;
 
+// {/* Condition if nothing exist*/}
+// {filteredExpenses.length === 0 ? (
+//   <p>No expenses found.</p>
+// ) : (
+//   filteredExpenses.map((el) => (
+//     <ExpenseItem
+//       key={el.id}
+//       title={el.title}
+//       amount={el.amount}
+//       date={el.date}
+//     />
+//   ))
+// )}
+
 {
-  /* .filter(expense => {
-            const comparableYear = new Date(filteredYear).getFullYear();
-            const date = new Date(expense.props.date).getFullYear();
-            return date === comparableYear;
-          })} */
+  /* Condition if nothing exist Way 2*/
 }
+//  {filteredExpenses.length === 0 && <p>No expenses found.</p>}
+//  {filteredExpenses.length > 0 &&
+//    filteredExpenses.map((el) => (
+//      <ExpenseItem
+//        key={el.id}
+//        title={el.title}
+//        amount={el.amount}
+//        date={el.date}
+//      />
+//    ))}
